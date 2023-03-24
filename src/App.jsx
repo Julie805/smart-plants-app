@@ -4,7 +4,7 @@ import React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
 // import "./styles.css";
-// import BasicTable from "./Table";
+import BasicTable from "./Table";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme({
@@ -32,7 +32,7 @@ export default function App() {
           {" "}
           Best Smart Plants App Ever
         </Typography>
-        {/* <BasicTable></BasicTable> */}
+        <BasicTable></BasicTable>
       </div>
     </ThemeProvider>
   </React.Fragment>
