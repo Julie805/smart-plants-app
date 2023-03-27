@@ -10,9 +10,9 @@ import PaidIcon from "@mui/icons-material/Paid";
 import CategoryIcon from "@mui/icons-material/Category";
 import CloseIcon from "@mui/icons-material/Close";
 //components
-import History from "./components/History";
-import IncreaseWin from "./components/IncreaseWin";
-import DecreaseWin from "./components/DecreaseWin";
+// import History from "./components/History";
+// import IncreaseWin from "./components/IncreaseWin";
+// import DecreaseWin from "./components/DecreaseWin";
 import Stat from "./components/Stat";
 import Category from "./components/Category";
 import Stage from "./components/Stage";
@@ -194,15 +194,15 @@ export default function Modal({ closeModal, data, nextData, index }) {
           />
         </Box>
         <Box sx={{ paddingTop: 5, paddingBottom: 10 }}>
-          {currentRow.probabilityHistory && (
+          {/* {currentRow.probabilityHistory && (
             <History history={currentRow.probabilityHistory} />
-          )}
-          {currentRow.pilytixFactorsIncreasingWin && (
+          )} */}
+          {/* {currentRow.pilytixFactorsIncreasingWin && (
             <IncreaseWin increase={currentRow.pilytixFactorsIncreasingWin} />
           )}
           {currentRow.pilytixFactorsDecreasingWin && (
             <DecreaseWin decrease={currentRow.pilytixFactorsDecreasingWin} />
-          )}
+          )} */}
         </Box>
       </CardContent>
     </Card>

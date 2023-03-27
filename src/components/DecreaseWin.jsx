@@ -5,15 +5,15 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import UploadIcon from "@mui/icons-material/Upload";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { v4 as uuidv4 } from "uuid";
 
 //MUI Tabs setup
-interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number;
-  value: number;
-}
+// interface TabPanelProps {
+//   children?: React.ReactNode;
+//   index: number;
+//   value: number;
+// }
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
@@ -42,14 +42,14 @@ function a11yProps(index: number) {
   };
 }
 
-export default function IncreaseWin(props) {
+export default function DecreaseWin(props) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
-  const factors = props.increase.map((item) => ({
+  const factors = props.decrease.map((item) => ({
     name: item.name,
     message: item.message,
     weight: item.weight,
@@ -117,10 +117,10 @@ export default function IncreaseWin(props) {
   };
 
   return (
-    <Box align="left" sx={{ paddingBottom: 3 }}>
+    <Box align="left">
       <Box sx={row}>
-        <UploadIcon sx={iconStyles} />
-        <Typography variant="h6">Factors Increasing Win</Typography>
+        <FileDownloadIcon sx={iconStyles} />
+        <Typography variant="h6">Factors Decreasing Win</Typography>
       </Box>
       <Card>
         <CardContent>
