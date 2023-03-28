@@ -17,62 +17,92 @@ import Stat from "./components/Stat";
 import Category from "./components/Category";
 import Stage from "./components/Stage";
 import Title from "./components/Title";
-import * as opportunities from "./opportunities.json";
+import { style } from "@mui/system";
+
+
+const styles = {
+  outerCard: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 600,
+    height: 580,
+    bgcolor: "background.paper",
+    borderRadius: "10px",
+    boxShadow: 24,
+    padding: 4,
+    overflow: "auto",
+    display: "flex",
+    justifyContent: "flex-start"
+  },
+  cardActions: {  
+    display: "flex",
+    justifyContent: "flex-end",
+    paddingBottom: 6   
+  },
+  box: {
+    display: "flex",
+    gap: 2,
+    paddingRight: 7.5
+  },
+  statBox: {
+    display: "flex",
+    gap: "20px",
+    width: "100%"
+  },
+  topBox: {
+    display: "flex",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    gap: 6,
+    width: "100%",
+    paddingBottom: 2.5
+  },
+  stageBox: { 
+    paddingBottom: 2.5 
+  },
+  stage: { 
+    paddingBottom: 1 
+  },
+  button: {
+    color: "#0A193F",
+    borderColor: "#0A193F",
+    fontWeight: "600",
+    padding: 1,
+    width: 100,
+    "&:hover": {
+      color: "#FFFFFF",
+      backgroundColor: "#74AEFA",
+      borderColor: "#74AEFA"
+    },
+  },
+    closeButton: {
+      color: "#0A193F",
+      padding: 1,
+      "&:hover": {
+        color: "#74AEFA"
+      }
+    },
+    titleBox: { 
+      paddingBottom: 0.5 
+    },
+    icon: { 
+      color: "#4BDDB5" 
+    },
+    stars: { 
+      color: "#FFF" 
+    },
+    dynamicContentBox: { 
+      paddingTop: 5, 
+      paddingBottom: 10 
+    }
+  };
 
 
 
-//styles
-const outerCardStyles = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 600,
-  height: 580,
-  bgcolor: "background.paper",
-  borderRadius: "10px",
-  boxShadow: 24,
-  padding: 4,
-  overflow: "auto",
-  display: "flex",
-  justifyContent: "flex-start"
-};
 
-const statBoxStyles = {
-  display: "flex",
-  gap: "20px",
-  width: "100%"
-};
 
-const topBoxStyles = {
-  display: "flex",
-  justifyContent: "flex-start",
-  alignItems: "center",
-  gap: 6,
-  width: "100%",
-  paddingBottom: 2.5
-};
-
-const buttonStyles = {
-  color: "#0A193F",
-  borderColor: "#0A193F",
-  fontWeight: "600",
-  padding: 1,
-  width: 100,
-  "&:hover": {
-    color: "#FFFFFF",
-    backgroundColor: "#74AEFA",
-    borderColor: "#74AEFA"
-  }
-};
-
-const closeButtonStyles = {
-  color: "#0A193F",
-  padding: 1,
-  "&:hover": {
-    color: "#74AEFA"
-  }
-};
 
 export default function Modal({ closeModal, data, nextData, index }) {
   const [currentRow, setCurrentRow] = useState(data);
@@ -100,24 +130,16 @@ export default function Modal({ closeModal, data, nextData, index }) {
   }, [data]);
 
   return (
-    <Card sx={outerCardStyles}>
+    <Card sx={styles.outerCard}>
       <CardContent>
         <CardActions
-          sx={{
-            display: "flex",
-            justifyContent: "flex-end",
-            paddingBottom: 6
-          }}
+          sx={styles.cardActions}
         >
           <Box
-            sx={{
-              display: "flex",
-              gap: 2,
-              paddingRight: 7.5
-            }}
+            sx={styles.box}
           >
             <Button
-              sx={buttonStyles}
+              sx={styles.button}
               variant="outlined"
               onClick={() => nextData(index - 1)}
               disabled={index === 0}
@@ -125,7 +147,7 @@ export default function Modal({ closeModal, data, nextData, index }) {
               Previous
             </Button>
             <Button
-              sx={buttonStyles}
+              sx={styles.button}
               variant="outlined"
               onClick={() => nextData(index + 1)}
               disabled={index === data.length - 1}
@@ -135,45 +157,45 @@ export default function Modal({ closeModal, data, nextData, index }) {
           </Box>
 
           <Box>
-            <Button onClick={() => closeModal(false)} sx={closeButtonStyles}>
+            <Button onClick={() => closeModal(false)} sx={styles.closeButton}>
               <CloseIcon />
             </Button>
           </Box>
         </CardActions>
-        <Box sx={{ paddingBottom: 0.5 }}>
+        <Box sx={styles.titleBox}>
           <Title info={oppInfo} name={oppName} />
         </Box>
-        <Box sx={topBoxStyles}>
+        <Box sx={styles.topBox}>
           <Box>
-            <Box sx={{ paddingBottom: 2.5 }}>
+            <Box sx={styles.stageBox}>
               {numStage ? (
                 <Stage
                   number={numStage}
                   description={stageInfo}
-                  sx={{ paddingBottom: 1 }}
+                  sx={styles.stage}
                 />
               ) : (
                 <p>No numStage found</p>
               )}
             </Box>
             <Category
-              icon={<PersonIcon sx={{ color: "#4BDDB5" }} />}
+              icon={<PersonIcon sx={styles.icon} />}
               name="Sales Representative"
               value={currentRow.salesRepName}
             />
             <Category
-              icon={<PaidIcon sx={{ color: "#4BDDB5" }} />}
+              icon={<PaidIcon sx={styles.icon} />}
               name="Amount"
               value={`$${amountComma}`}
             />
             <Category
-              icon={<CategoryIcon sx={{ color: "#4BDDB5" }} />}
+              icon={<CategoryIcon sx={styles.icon} />}
               name="Product"
               value={currentRow.product}
             />
           </Box>
         </Box>
-        <Box sx={statBoxStyles}>
+        <Box sx={styles.statBox}>
           <Stat title="Rep Probablility:" value={currentRow.repProbability} />
           <Stat
             title="Pilytix Probablility:"
@@ -185,15 +207,13 @@ export default function Modal({ closeModal, data, nextData, index }) {
               <Rating
                 name="read-only"
                 value={numStars}
-                sx={{
-                  color: "#FFFFFF"
-                }}
+                sx={styles.stars}
                 readOnly
               />
             }
           />
         </Box>
-        <Box sx={{ paddingTop: 5, paddingBottom: 10 }}>
+        <Box sx={styles.dynamicContentBox}>
           {/* {currentRow.probabilityHistory && (
             <History history={currentRow.probabilityHistory} />
           )} */}

@@ -49,7 +49,7 @@ export default function BasicTable() {
 
   //opens modal and sets state to selected row
   function handleRowClick(event, row, index) {
-    console.log({ row });
+    // console.log({ row });
     setRowIndex(index);
 
     setShow(!show);
