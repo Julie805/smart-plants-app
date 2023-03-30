@@ -24,21 +24,40 @@ ChartJS.register(
   Legend
 );
 
-export default function History(props) {
-  const labels = props.history.map((item) => item.daysAgo);
+const styles = {
+  topBox: {
+    paddingBottom: 1.5
+  },
+  row: {
+    display: "flex",
+    alignItems: "flex-end",
+    gap: "5px",
+    paddingTop: 3,
+    paddingBottom: 3
+  },
+  icon: {
+    color: "#4BDDB5", 
+    paddingBottom: 0.35, 
+    fontSize: 28
+  }
+
+}
+
+export default function History({ history }) {
+  const labels = history.map((item) => item.daysAgo);
 
   const data = {
     labels,
     datasets: [
       {
         label: "Rep Probability",
-        data: props.history.map((item) => item.repProb),
+        data: history.map((item) => item.repProb),
         borderColor: "#74AEFA",
         backgroundColor: "#74AEFA"
       },
       {
         label: "Pilytix Probability",
-        data: props.history.map((item) => item.pilytixProb),
+        data: history.map((item) => item.pilytixProb),
         borderColor: "#4BDDB5",
         backgroundColor: "#4BDDB5"
       }
@@ -69,20 +88,11 @@ export default function History(props) {
     }
   };
 
-  //styles
-  const row = {
-    display: "flex",
-    alignItems: "flex-end",
-    gap: "5px",
-    paddingTop: 3,
-    paddingBottom: 3
-  };
-
   return (
-    <Box sx={{ paddingBottom: 1.5 }}>
-      <Box sx={row}>
+    <Box sx={styles.topBox}>
+      <Box sx={styles.row}>
         <SettingsBackupRestoreIcon
-          sx={{ color: "#4BDDB5", paddingBottom: 0.35, fontSize: 28 }}
+          sx={styles.icon}
         />
         <Typography variant="h6" align="left">
           Probability History

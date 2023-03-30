@@ -2,29 +2,32 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-//styles
-const row = {
-  display: "flex",
-  alignItems: "center",
-  gap: "5px"
-};
+const styles = {
+  topBox: {
+    paddingBottom: 2.5,
+  },
+  row: {
+    display: "flex",
+    alignItems: "center",
+    gap: "5px"
+  },
+  subtitle: {
+    paddingLeft: 3.85,
+    color: "#abb8c3",
+    fontSize: 12
+  }
+}
 
-const subtitle = {
-  paddingLeft: 3.85,
-  color: "#abb8c3",
-  fontSize: 12
-};
-
-export default function Category(props) {
+export default function Category({icon, value, name}) {
   return (
-    <Box align="left" sx={{ paddingBottom: 2.5 }}>
-      <Box sx={row}>
-        {props.icon}
+    <Box align="left" sx={styles.paddingBottom}>
+      <Box sx={styles.row}>
+        {icon}
         <Typography variant="h6" color="primary">
-          {props.value}
+          {value}
         </Typography>
       </Box>
-      <Typography sx={subtitle}>{props.name}</Typography>
+      <Typography sx={styles.subtitle}>{name}</Typography>
     </Box>
   );
 }

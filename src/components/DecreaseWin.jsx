@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
@@ -42,14 +42,14 @@ function a11yProps(index: number) {
   };
 }
 
-export default function DecreaseWin(props) {
+export default function DecreaseWin( {decrease} ) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
-  const factors = props.decrease.map((item) => ({
+  const factors = decrease.map((item) => ({
     name: item.name,
     message: item.message,
     weight: item.weight,

@@ -2,19 +2,21 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
-const title = {
-  fontWeight: "800",
-  color: "primary",
-};
+const styles = {
+  title: {
+    fontWeight: "800",
+    color: "primary",
+  } 
+}
 
-export default function Title (props) {
+export default function Title ({ info, name }) {
   return (
     <Box align="left" >
      <Typography  color="primary" gutterBottom>
-          {props.info}
+          {info}
       </Typography>
-      <Typography sx={title} variant="h4" gutterBottom>
-          {props.name} 
+      <Typography sx={styles.title} variant="h4" gutterBottom>
+          {name} 
       </Typography>
     </Box>
   );

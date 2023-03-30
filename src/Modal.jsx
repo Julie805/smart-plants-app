@@ -17,7 +17,7 @@ import Stat from "./components/Stat";
 import Category from "./components/Category";
 import Stage from "./components/Stage";
 import Title from "./components/Title";
-import { style } from "@mui/system";
+// import { style } from "@mui/system";
 
 
 const styles = {
@@ -98,11 +98,6 @@ const styles = {
       paddingBottom: 10 
     }
   };
-
-
-
-
-
 
 export default function Modal({ closeModal, data, nextData, index }) {
   const [currentRow, setCurrentRow] = useState(data);

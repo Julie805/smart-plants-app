@@ -3,20 +3,23 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 
-const cardStyles = {
-  backgroundColor: "#74AEFA",
-  minWidth: 150
-};
+const styles = {
+  card: {
+    backgroundColor: "#74AEFA",
+    minWidth: 150
+  }
+}
 
-export default function Stat(props) {
+
+export default function Stat({ title, value }) {
   return (
-    <Card sx={ cardStyles }>
+    <Card sx={styles.card}>
       <CardContent align="left">
         <Typography variant="caption" color="#FFFFFF">
-          {props.title}
+          {title}
         </Typography>
         <Typography variant="h2" color="#FFFFFF" align="center">
-          {props.value}
+          {value}
         </Typography>
       </CardContent>
     </Card>

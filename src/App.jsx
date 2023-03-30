@@ -1,11 +1,9 @@
-import { useState } from 'react'
-import './App.css'
 import React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
-// import "./styles.css";
-import BasicTable from "./Table";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import './App.css'
+import BasicTable from "./Table";
 
 const theme = createTheme({
   typography: {
@@ -21,6 +19,13 @@ const theme = createTheme({
   }
 });
 
+const styles = {
+  headline: {
+    fontWeight: "800",
+    p: 2.5
+  }
+}
+
 export default function App() {
 
   return (
@@ -28,7 +33,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className="App">
-        <Typography variant="h5" sx={{ fontWeight: "800", p: 2.5 }}>
+        <Typography variant="h5" sx={ styles.headline }>
           {" "}
           Best Smart Plants App Ever
         </Typography>

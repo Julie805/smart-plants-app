@@ -2,17 +2,20 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Chip from '@mui/material/Chip';
 
-const chipStyles = {
-  backgroundColor: "#4BDDB5",
-  color: "primary",
-};
+const styles = {
+  chip: {
+    backgroundColor: "#4BDDB5",
+    color: "primary",
+  }
+}
 
-export default function Stage (props) {
+
+export default function Stage ({ number, description }) {
   return (
     <Box>
       <Chip 
-        sx={ chipStyles } 
-        label={`STAGE ${props.number} - ${props.description}`} 
+        sx={styles.chip} 
+        label={`STAGE ${number} - ${description}`} 
       />
     </Box>
   );
