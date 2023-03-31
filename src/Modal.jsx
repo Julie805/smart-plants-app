@@ -17,7 +17,6 @@ import Stat from "./components/Stat";
 import Category from "./components/Category";
 import Stage from "./components/Stage";
 import Title from "./components/Title";
-// import { style } from "@mui/system";
 
 
 const styles = {
