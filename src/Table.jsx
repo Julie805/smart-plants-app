@@ -73,7 +73,7 @@ export default function BasicTable() {
       <Table sx={{ minWidth: 650 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell align="left">Opp Name </StyledTableCell>
+            <StyledTableCell align="left">Name </StyledTableCell>
             <StyledTableCell align="left">Opp Stage </StyledTableCell>
             <StyledTableCell align="right">Rep Probability</StyledTableCell>
             <StyledTableCell align="right">PX Probability</StyledTableCell>

@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
 //MUI Tabs setup
 // interface TabPanelProps {
@@ -15,7 +15,7 @@ import { v4 as uuidv4 } from "uuid";
 //   value: number;
 // }
 
-function TabPanel(props: TabPanelProps) {
+function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
@@ -35,7 +35,7 @@ function TabPanel(props: TabPanelProps) {
   );
 }
 
-function a11yProps(index: number) {
+function a11yProps(index) {
   return {
     id: `vertical-tab-${index}`,
     "aria-controls": `vertical-tabpanel-${index}`
@@ -45,15 +45,15 @@ function a11yProps(index: number) {
 export default function DecreaseWin( {decrease} ) {
   const [value, setValue] = React.useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const factors = decrease.map((item) => ({
+  const factors = decrease.map((index, item) => ({
     name: item.name,
     message: item.message,
     weight: item.weight,
-    key: uuidv4()
+    key: `factor-${index}`
   }));
 
   //gets labels
@@ -63,7 +63,7 @@ export default function DecreaseWin( {decrease} ) {
       <Tab
         key={index}
         label={label}
-        {...a11yProps({ index })}
+        {...a11yProps( index )}
         sx={{
           bgcolor: value === index ? "secondary.main" : "inherit",
           "&:hover": {
